@@ -3,25 +3,12 @@
 		<div class="container">
 			<nav>
 				<a
-					@click.prevent="goto('/constructor')"
-					href="/constructor"
-					:class="{ 'link__active': route.path === '/constructor' }"
+					v-for="item in navList"
+					@click.prevent="goto(item.path)"
+					:href="item.path"
+					:class="{ 'link__active': route.path === item.path }"
 				>
-					Constructor
-				</a>
-				<a
-					@click.prevent="goto('/configs')"
-					href="/configs"
-					:class="{ 'link__active': route.path === '/configs' }"
-				>
-					Configs
-				</a>
-				<a
-					@click.prevent="goto('/howto')"
-					href="/howto"
-					:class="{ 'link__active': route.path === '/howto' }"
-				>
-					How to...
+					{{ item.name }}
 				</a>
 			</nav>
 
@@ -44,13 +31,27 @@ export default {
 		const route = useRoute(),
 			router = useRouter()
 
+		const navList = [
+			{
+				name: 'Constructor',
+				path: '/constructor'
+			},
+			{
+				name: 'Configs',
+				path: '/configs'
+			},
+			{
+				name: 'How to...',
+				path: '/howto'
+			},
+		]
 
 		function goto(path) {
 			if (path === route.path) return
 			router.push(path)
 		}
 
-		return { goto, route }
+		return { goto, route, navList }
 	}
 }
 </script>
