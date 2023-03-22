@@ -42,7 +42,20 @@ header {
 
         .menu {
             display: flex;
-            gap: 40px;
+            gap: 16px;
+            align-items: center;
         }
+    }
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background: #dfdfdf;
     }
 }

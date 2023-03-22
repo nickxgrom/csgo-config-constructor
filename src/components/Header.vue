@@ -13,11 +13,24 @@
 			</nav>
 
 			<div class="menu">
-				<div title="Work in progress">
+				<div
+					class="btn"
+					title="Work in progress"
+				>
 					Sign In
 				</div>
-				<mdicon name="translate"/>
-				<mdicon name="theme-light-dark"/>
+				<div
+					class="btn"
+					title="Work in progress"
+				>
+					<mdicon name="translate"/>
+				</div>
+				<div
+					class="btn"
+					title="Work in progress"
+				>
+					<mdicon name="theme-light-dark"/>
+				</div>
 			</div>
 		</div>
 	</header>
