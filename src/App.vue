@@ -4,5 +4,8 @@
 
 <template>
 	<Header/>
+	<div class="wrapper">
+		<router-view/>
+	</div>
 </template>
 

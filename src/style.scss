@@ -59,3 +59,11 @@ header {
         background: #dfdfdf;
     }
 }
+
+.wrapper {
+    overflow: hidden;
+    width: 64%;
+    height: calc(100vh - 60px);
+    margin: 0 auto;
+    background: #D9D9D9;
+}
