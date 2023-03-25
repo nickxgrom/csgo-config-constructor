@@ -26,8 +26,8 @@
 					<mdicon name="translate"/>
 				</div>
 				<div
+					@click="changeTheme"
 					class="btn"
-					title="Work in progress"
 				>
 					<mdicon name="theme-light-dark"/>
 				</div>
@@ -59,12 +59,22 @@ export default {
 			},
 		]
 
+		document.body.setAttribute('data-theme', localStorage.getItem('theme') || 'light')
+		localStorage.setItem('theme', document.body.getAttribute('data-theme'))
+
 		function goto(path) {
 			if (path === route.path) return
 			router.push(path)
 		}
 
-		return { goto, route, navList }
+		function changeTheme() {
+			const isLight = document.body.getAttribute('data-theme') === 'light'
+			document.body.setAttribute('data-theme', isLight ? 'dark' : 'light')
+
+			localStorage.setItem('theme', document.body.getAttribute('data-theme'))
+		}
+
+		return { goto, route, navList, changeTheme }
 	}
 }
 </script>

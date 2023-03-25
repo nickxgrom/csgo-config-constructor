@@ -1,0 +1,11 @@
+:root {
+    --header-background: #000;
+    --header-text-color: #fff;
+    --btn-background-hover: #dfdfdf;
+}
+
+body[data-theme="light"] {
+    --header-background: #fff;
+    --header-text-color: #353535;
+    --btn-background-hover: #dfdfdf;
+}
