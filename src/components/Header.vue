@@ -20,10 +20,26 @@
 					Sign In
 				</div>
 				<div
-					class="btn"
-					title="Work in progress"
+					class="dropdown-menu switch-lang-btn"
+					tabindex="0"
+					@blur="toggleSwitchLangMenu"
 				>
-					<mdicon name="translate"/>
+					<div
+						@click="toggleSwitchLangMenu"
+						class="btn"
+					>
+						<mdicon name="translate"/>
+					</div>
+					<div class="dropdown-menu__content">
+						<div
+							v-for="locale in locales"
+							:key="locale.code"
+							class="locale-item"
+							@click="changeLanguage(locale.code)"
+						>
+							{{ locale.name }}
+						</div>
+					</div>
 				</div>
 				<div
 					@click="changeTheme"
@@ -38,11 +54,15 @@
 
 <script>
 import { useRoute, useRouter } from 'vue-router'
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 export default {
 	name: "Header",
 	setup() {
 		const route = useRoute(),
-			router = useRouter()
+			router = useRouter(),
+			i18n = useI18n()
+
 
 		const navList = [
 			{
@@ -74,7 +94,36 @@ export default {
 			localStorage.setItem('theme', document.body.getAttribute('data-theme'))
 		}
 
-		return { goto, route, navList, changeTheme }
+		function toggleSwitchLangMenu() {
+			const switchLangBtn = document.querySelector('.switch-lang-btn')
+			switchLangBtn.classList.toggle('active')
+			switchLangBtn.querySelector('.btn').classList.toggle('active')
+		}
+
+		function changeLanguage(code) {
+			i18n.locale.value = code
+			toggleSwitchLangMenu()
+		}
+
+		return {
+			goto,
+			changeTheme,
+			toggleSwitchLangMenu,
+			changeLanguage,
+			route,
+			navList,
+			theme,
+			locales: [
+				{
+					name: 'English',
+					code: 'en-US'
+				},
+				{
+					name: 'Русский',
+					code: 'ru-RU'
+				}
+			]
+		}
 	}
 }
 </script>
