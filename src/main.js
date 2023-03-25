@@ -1,26 +1,19 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import './styles/style.scss'
+const app = createApp(App)
 import App from './App.vue'
+import './styles/style.scss'
 
-import mdiVue from "mdi-vue/v3";
+import { createPinia } from 'pinia'
+import router from './router'
+
+import mdiVue from 'mdi-vue/v3'
 import * as mdijs from '@mdi/js'
 
-import router from './router'
+import { createI18n } from 'vue-i18n'
+import ru from '@/locales/ru.js'
+import en from '@/locales/en.js'
+
 const pinia = createPinia()
-const app = createApp(App)
-
-import {createI18n} from "vue-i18n";
-import ru from "@/locales/ru.js";
-import en from "@/locales/en.js";
-
-app.use(mdiVue, {
-    icons: mdijs
-})
-app.component('$router', router)
-
-app.use(router).use(pinia)
-
 const i18n = createI18n({
     legacy: false,
     messages: {
@@ -29,6 +22,11 @@ const i18n = createI18n({
     }
 })
 
+app.use(pinia)
+app.use(router)
+app.use(mdiVue, { icons: mdijs })
 app.use(i18n)
+
+app.component('$router', router)
 
 app.mount('#app')
