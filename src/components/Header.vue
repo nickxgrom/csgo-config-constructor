@@ -45,7 +45,9 @@
 					@click="changeTheme"
 					class="btn"
 				>
-					<mdicon name="theme-light-dark"/>
+					<mdicon
+						:name="theme === 'light' ? 'weather-night' : 'weather-sunny'"
+					/>
 				</div>
 			</div>
 		</div>
@@ -80,7 +82,8 @@ export default {
 		]
 
 		document.body.setAttribute('data-theme', localStorage.getItem('theme') || 'light')
-		localStorage.setItem('theme', document.body.getAttribute('data-theme'))
+		let theme = ref(document.body.getAttribute('data-theme'))
+		localStorage.setItem('theme', theme.value)
 
 		function goto(path) {
 			if (path === route.path) return
@@ -91,7 +94,9 @@ export default {
 			const isLight = document.body.getAttribute('data-theme') === 'light'
 			document.body.setAttribute('data-theme', isLight ? 'dark' : 'light')
 
-			localStorage.setItem('theme', document.body.getAttribute('data-theme'))
+			const dataTheme = document.body.getAttribute('data-theme')
+			localStorage.setItem('theme', dataTheme)
+			theme.value = dataTheme
 		}
 
 		function toggleSwitchLangMenu() {
