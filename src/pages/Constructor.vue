@@ -1,5 +1,7 @@
 <template>
-	<h1>Constructor page</h1>
+	<div class="page-title">
+		<h1>{{ $t('pages.constructor.title') }}</h1>
+	</div>
 </template>
 
 <script>

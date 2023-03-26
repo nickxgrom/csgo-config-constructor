@@ -8,6 +8,7 @@ html {
 body {
     margin: 0;
     background: #232A30;
+    color: var(--main-text-color)
 }
 
 header {
@@ -72,6 +73,7 @@ header {
     height: calc(100vh - 60px);
     margin: 0 auto;
     background: #D9D9D9;
+    box-sizing: border-box;
 }
 
 .dropdown-menu {
@@ -99,5 +101,16 @@ header {
     }
     &.active > &__content {
         display: block;
+    }
+}
+
+.page-title {
+    border-bottom: 1px solid var(--main-text-color);
+
+    h1 {
+        margin: 0;
+        padding: 16px 32px 8px 32px;
+        font-weight: 200;
+        font-size: 1.6rem;
     }
 }

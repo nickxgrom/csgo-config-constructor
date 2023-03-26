@@ -1,3 +1,7 @@
 export default {
-    hello: 'Привет'
+    pages: {
+        constructor: {
+            title: 'Конструктор конфига',
+        }
+    }
 }

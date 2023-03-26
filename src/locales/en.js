@@ -1,3 +1,7 @@
 export default {
-    hello: 'Hello'
+    pages: {
+        constructor: {
+            title: 'Config constructor',
+        }
+    }
 }
