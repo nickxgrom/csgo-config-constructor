@@ -22,7 +22,7 @@
 				<div
 					class="dropdown-menu switch-lang-btn"
 					tabindex="0"
-					@blur="toggleSwitchLangMenu"
+					@blur="toggleSwitchLangMenu('remove')"
 				>
 					<div
 						@click="toggleSwitchLangMenu"
@@ -99,10 +99,16 @@ export default {
 			theme.value = dataTheme
 		}
 
-		function toggleSwitchLangMenu() {
-			const switchLangBtn = document.querySelector('.switch-lang-btn')
-			switchLangBtn.classList.toggle('active')
-			switchLangBtn.querySelector('.btn').classList.toggle('active')
+		function toggleSwitchLangMenu(action) {
+			const switchLangBtn = document.querySelector('.switch-lang-btn'),
+				switchLangActivator = switchLangBtn.querySelector('.btn')
+			if (action === 'remove') {
+				switchLangBtn.classList.remove('active')
+				switchLangActivator.classList.remove('active')
+			} else {
+				switchLangBtn.classList.toggle('active')
+				switchLangActivator.classList.toggle('active')
+			}
 		}
 
 		function changeLanguage(code) {
