@@ -31,3 +31,15 @@ defineProps({
 	}
 })
 </script>
+
+<style scoped>
+#c-select {
+	font-size: 0.8rem;
+	@apply
+	w-220
+	px-3
+	py-1
+	rounded
+}
+
+</style>
