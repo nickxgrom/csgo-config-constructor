@@ -32,5 +32,21 @@ const options = [
 </script>
 
 <style scoped>
+.container {
+	@apply
+	flex
+	justify-between
+	py-5
+	px-8
+	gap-5
+}
 
+.categories {
+	@apply
+	bg-card-color
+	max-w-[50%]
+	w-full
+	p-3
+	rounded
+}
 </style>
