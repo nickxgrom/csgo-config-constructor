@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       colors: {
-        'card-color': '#B0B0B0'
+        'card-color': '#B0B0B0',
+        'main-text-color': 'rgba(35, 42, 48, .75)'
       }
     },
   },

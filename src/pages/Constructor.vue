@@ -6,7 +6,17 @@
 		<div class="categories">
 			<c-select
 				:options="options"
+				class="mb-3"
 			/>
+			<div class="commands-list">
+				<command-card
+					v-for="c in 5"
+					:key="5"
+					name="volume"
+					description="aalsij aldioj aodsij saodifjlk asodijkldsao"
+				>
+				</command-card>
+			</div>
 		</div>
 		<div>wip</div>
 	</div>
@@ -15,6 +25,7 @@
 <script setup>
 import CSelect from "@/components/shared/CSelect.vue";
 import {useI18n} from "vue-i18n";
+import CommandCard from "@/components/CommandCard.vue";
 
 const i18n = useI18n()
 
@@ -45,8 +56,15 @@ const options = [
 	@apply
 	bg-card-color
 	max-w-[50%]
-	w-full
 	p-3
 	rounded
+}
+
+.commands-list {
+	@apply
+	flex
+	flex-row
+	flex-wrap
+	gap-2
 }
 </style>
