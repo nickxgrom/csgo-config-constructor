@@ -28,10 +28,12 @@ defineProps({
 
 <style scoped>
 	.command-card {
+		flex-basis: calc(33.33% - 8px);
 		@apply
 		max-w-[220px]
 		rounded
 		bg-white
+		grow
 	}
 
 	.card-header {
