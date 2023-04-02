@@ -53,15 +53,20 @@ const options = [
 }
 
 .categories {
+	width: auto;
+	min-width: min-content;
 	@apply
 	bg-card-color
-	max-w-[50%]
 	p-3
 	rounded
+	flex
+	flex-col
+	shrink
 }
 
 .commands-list {
 	@apply
+	shrink
 	flex
 	flex-row
 	flex-wrap
