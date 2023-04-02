@@ -15,6 +15,11 @@
 					name="volume"
 					description="aalsij aldioj aodsij saodifjlk asodijkldsao"
 				>
+					<c-chip
+						v-if="c%2"
+						text="sv_cheats"
+						color="error"
+					/>
 				</command-card>
 			</div>
 		</div>
@@ -26,6 +31,7 @@
 import CSelect from "@/components/shared/CSelect.vue";
 import {useI18n} from "vue-i18n";
 import CommandCard from "@/components/CommandCard.vue";
+import CChip from "@/components/shared/CChip.vue"
 
 const i18n = useI18n()
 
@@ -62,6 +68,7 @@ const options = [
 	flex
 	flex-col
 	shrink
+	max-w-[60%]
 }
 
 .commands-list {

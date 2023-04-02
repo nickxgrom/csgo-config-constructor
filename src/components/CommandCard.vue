@@ -40,6 +40,7 @@ defineProps({
 		@apply
 		flex
 		justify-between
+		items-center
 		py-1
 		px-2
 	}
@@ -47,6 +48,7 @@ defineProps({
 	.command-name {
 		@apply
 		text-main-text-color
+		text-[.7rem]
 	}
 
 	.card-description {
